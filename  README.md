@@ -29,230 +29,253 @@ docker run -p 8080:8080 bank
 
 ```json
 {
-	"info": {
-		"_postman_id": "ed30f3d9-3091-41e1-b9dd-c917d8835c28",
-		"name": "Bank API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27997264"
-	},
-	"item": [
-		{
-			"name": "Accounts",
-			"item": [
-				{
-					"name": "Create",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var response = pm.response.json();",
-									"",
-									"pm.collectionVariables.set(\"account_id\", response.id);",
-									"",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_type\": \"Current\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{dev}}/accounts",
-							"host": [
-								"{{dev}}"
-							],
-							"path": [
-								"accounts"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Read",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{dev}}/accounts/{{account_id}}",
-							"host": [
-								"{{dev}}"
-							],
-							"path": [
-								"accounts",
-								"{{account_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"account_type\": \"Savings\",\n  \"balance\": 500,\n  \"is_frozen\": false\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{dev}}/accounts/{{account_id}}",
-							"host": [
-								"{{dev}}"
-							],
-							"path": [
-								"accounts",
-								"{{account_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{dev}}/accounts/{{account_id}}",
-							"host": [
-								"{{dev}}"
-							],
-							"path": [
-								"accounts",
-								"{{account_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Debit",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"amount\": 100\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{dev}}/accounts/{{account_id}}/debit",
-							"host": [
-								"{{dev}}"
-							],
-							"path": [
-								"accounts",
-								"{{account_id}}",
-								"debit"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Credit",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"amount\": 200\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{dev}}/accounts/{{account_id}}/credit",
-							"host": [
-								"{{dev}}"
-							],
-							"path": [
-								"accounts",
-								"{{account_id}}",
-								"credit"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Freeze",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "dev",
-			"value": "http://localhost:8080",
-			"type": "string"
-		},
-		{
-			"key": "account_id",
-			"value": ""
-		}
-	]
+  "info": {
+    "_postman_id": "ed30f3d9-3091-41e1-b9dd-c917d8835c28",
+    "name": "Bank API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "27997264"
+  },
+  "item": [
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Create",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = pm.response.json();",
+                  "",
+                  "pm.collectionVariables.set(\"account_id\", response.id);",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"account_type\": \"Current\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{dev}}/accounts",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{dev}}/accounts/{{account_id}}",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts",
+                "{{account_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_type\": \"Savings\",\n  \"balance\": 500,\n  \"is_frozen\": false\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{dev}}/accounts/{{account_id}}",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts",
+                "{{account_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{dev}}/accounts/{{account_id}}",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts",
+                "{{account_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Debit",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 10000000\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{dev}}/accounts/{{account_id}}/debit",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts",
+                "{{account_id}}",
+                "debit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Credit",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 500000000000\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{dev}}/accounts/{{account_id}}/credit",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts",
+                "{{account_id}}",
+                "credit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Freeze",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{dev}}/accounts/{{account_id}}/freeze",
+              "host": [
+                "{{dev}}"
+              ],
+              "path": [
+                "accounts",
+                "{{account_id}}",
+                "freeze"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Transfer",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "dev",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "account_id",
+      "value": ""
+    },
+    {
+      "key": "account_id2",
+      "value": ""
+    }
+  ]
 }
 ```
